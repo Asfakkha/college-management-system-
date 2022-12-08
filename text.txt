@@ -1,0 +1,16 @@
+@RestController
+@RequestMapping("api/v1")
+public class Controller {
+	@Autowired
+	BookService bookService;
+
+	@GetMapping("/book")
+	public List<Book> getBook() {
+		return bookService.getAllBook();
+	}
+
+	@GetMapping("/{id}")
+	public Book getBookid(@PathVariable("id") Long id) {
+		return bookService.getById(id);
+	}
+}
